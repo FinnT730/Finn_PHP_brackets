@@ -161,14 +161,30 @@ $matches = createMatchs(0,$matches, $teams,null);
 //echo '<pre>' , print_r(var_dump($matches)) , '</pre>';
 
 
-$matches = rematch(1,$matches,$matches[0]);
-//$matches = rematch(2,$matches,$matches[1]);
+$matches = rematch(0,$matches,$matches[0]);
+$matches = rematch(1,$matches,$matches = rematch(2,$matches,$matches[1])[0]);
+$matches = rematch(2,$matches,rematch(2,$matches,rematch(1,$matches,$matches = rematch(3,$matches,$matches[3])[0])[0])[0]);
 
 //echo '<pre>' , print_r(var_dump($matches)) , '</pre>';
 
 
-echo(json_encode($matches));
+//echo(json_encode($matches));
 
+
+foreach ($matches as $a) {
+    $m = $a;
+    if($m->lastMatch != null) {
+        echo "{<br>";
+//        echo $m->lastMatch->team1;
+//        echo $m->lastMatch->team1;
+        $depth = 0;
+        while($m->lastMatch->lastMatch != null) {
+            $depth += 1;
+        }
+        echo $depth;
+        echo "}<br>";
+    }
+}
 
 //
 //foreach ($matches as $a) {
