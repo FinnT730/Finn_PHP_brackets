@@ -50,36 +50,14 @@ function createMatchs(int $id, $_matchArr, $_teams , _match $lastm = null) {
             if($i == 0) {
                 $_matchArr[0] = $_m;
             } else {
-                $_matchArr[$i - 1] = $_m;
+                if($id != 0) {
+                    $_matchArr[$i - 1 + $id] = $_m;
+                } else {
+                    $_matchArr[$i - 1] = $_m;
+                }
             }
         }
     }
-
-
-//    for($i = 0; $i < count($_teams); $i += 2) {
-//        $a = null;
-//        $t1 = new Team($_teams[$i][0]->name, $_teams[$i][1]->players);
-//        $t2 = new Team($_teams[$i+1][0]->name, $_teams[$i+1][1]->players);
-//        if(is_null($lastm)) {
-//            $a = new _match($t1,$t2);
-//        } else {
-//            $a = new _match($t1,$t2,$lastm);
-//        }
-//        $_matchArr[$id] = $a;
-//        $id += 1;
-//    }
-
-
-//
-//    $a = null;
-//    if(is_null($lastm)) {
-//        $a = new _match($t1,$t2);
-//    } else {
-//        $a = new _match($t1,$t2,$lastm);
-//    }
-//    $a = new _match($t1,$t2);
-//    $_matchArr[$id] = $a;
-
     return $_matchArr;
 }
 
@@ -96,26 +74,6 @@ $matches = createMatchs(0,$matches, $teams,null);
 foreach ($matches as $a) {
 
    $m = $a;
-//   echo $m->score1 . "<br>";
     echo "team name: " . $m->team1->name . " , team score: " . $m->score1 . "<br>";
 
-//    echo "{{{{ <br>";
-//    foreach ($value as $qq => $qv) {
-//        echo $qq . "<br>";
-//    }
-//    echo "}}}} <br>";
-//
-//    echo "{ ";
-
-//    echo "Match : " . $value->id;
-//    echo("<br>" . $value . '<br>');
-
-//    if($value->lastMatch != null) {
-//        foreach ($value as $b => $vb) {
-//            echo("Match [ " . $vb . " ] <br>");
-////            echo("[ LAST MATCH(S) = " . $vb . " ] <br>");
-//        }
-//    }
-//    echo " }";
-//    echo '<br>';
 }
