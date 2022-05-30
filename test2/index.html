@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery.bracket.min.js"></script>
+    <link rel="stylesheet" href="jquery.bracket.min.css" />
+
+</head>
+<body>
+
+<script>
+    var bigData = {
+        teams : [
+            ["Team 1",  "Team 2" ],
+            ["Team 3",  "Team 4" ],
+            ["Team 5",  "Team 6" ],
+            ["Team 7",  "Team 8" ],
+        ],
+        results : [[ /* WINNER BRACKET */
+            [[3,55], [2,4], [6,3], [2,3], [1,5], [5,3], [7,2], [1,2]],
+            [[1,2], [3,4], [5,6], [7,8]],
+            [[9,1], [8,2]],
+            [[1,3]]
+        ], [         /* LOSER BRACKET */
+            [[5,1], [1,2], [3,2], [6,9]],
+            [[8,2], [1,2], [6,2], [1,3]],
+            [[1,2], [3,1]],
+            [[3,0], [1,9]],
+            [[3,2]],
+            [[4,2]]
+        ], [         /* FINALS */
+            [[3,8], [1,2]],
+            [[2,1]]
+        ]]
+    }
+
+    $(function() { $('div#big .demo').bracket({init: bigData}) })
+</script>
+
+
+<span id="matchCallback"></span>
+<div id="matches">
+    <div class="demo">
+    </div>
+</div>
+
+
+<div id="big">
+    <div class="demo">
+    </div>
+</div>
+
+
+</body>
+</html>

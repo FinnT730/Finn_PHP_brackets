@@ -17,7 +17,7 @@ class Team
 
     public function __toString(): string
     {
-        return "Team name : " . $this->name;
+        return "Team name : " . $this->name . "<br>";
     }
 
 
