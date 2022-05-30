@@ -26,6 +26,7 @@ class _match
         $this->lastMatch = $lastMatch;
         $this->team1 = $team1;
         $this->team2 = $team2;
+
     }
 
     public function __toString(): string
