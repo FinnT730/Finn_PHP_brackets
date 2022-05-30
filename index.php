@@ -47,6 +47,7 @@ function createMatchs(int $id, $_matchArr, $_teams , _match $lastm = null) {
             $_m = $match;
             $_m->score1 = random_int(1,5);
             $_m->score2 = random_int(1,5);
+            $_m->id = $id;
             if($i == 0) {
                 $_matchArr[0] = $_m;
             } else {
@@ -61,6 +62,30 @@ function createMatchs(int $id, $_matchArr, $_teams , _match $lastm = null) {
     return $_matchArr;
 }
 
+
+
+function rematch($id, _match $lastm = null) {
+
+    echo "team name: " . $lastm->team1->name . " , team score: " . $lastm->score1 . "<br>";
+    echo "team name: " . $lastm->team2->name . " , team score: " . $lastm->score2 . "<br>";
+
+    if($lastm->score1 < $lastm->score2) {
+        echo $lastm->team1->name . " SCORED LESS!!! <br>";
+    }
+
+//    foreach ($lastm as $a) {
+//
+//        $m = $a;
+//        echo "team name: " . $m->team1->name . " , team score: " . $m->score1 . "<br>";
+//        echo "team name: " . $m->team2->name . " , team score: " . $m->score2 . "<br>";
+//
+//        if($m->score1 < $m->score2) {
+//            echo $m->team1->name . " SCORED LESS!!! <br>";
+//        }
+//    }
+}
+
+
 shuffle($teams);
 $matches = createMatchs(0,$matches, $teams,null);
 //$matches = createMatch(1,$teams,$matches,$matches[0]);
@@ -71,9 +96,12 @@ $matches = createMatchs(0,$matches, $teams,null);
 //echo '<pre>' , print_r(var_dump($matches)) , '</pre>';
 
 
-foreach ($matches as $a) {
+rematch(0,$matches[0]);
 
-   $m = $a;
-    echo "team name: " . $m->team1->name . " , team score: " . $m->score1 . "<br>";
-
-}
+//
+//foreach ($matches as $a) {
+//
+//   $m = $a;
+//    echo "team name: " . $m->team1->name . " , team score: " . $m->score1 . "<br>";
+//
+//}
